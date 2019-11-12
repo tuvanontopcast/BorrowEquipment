@@ -14,7 +14,7 @@
     </head>
     <body>
         <h1>Hello ${user.username}!</h1>
-        <a href="/BorrowAndReturn/Borrow">BORROW</a><br>
+        <a href="Borrow">BORROW</a><br><%--ตรง href จะไม่ใส่ /path ก็ได้--%>
         <a href="/BorrowAndReturn/Return">Return</a>
         <form action="Logout" method="post"><input type="submit" value="Logout"></form><br>
         <hr>

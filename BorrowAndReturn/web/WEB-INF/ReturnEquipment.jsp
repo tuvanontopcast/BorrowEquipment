@@ -14,7 +14,7 @@
     </head>
     <body>
         <h1>Borrower ${user.username}!</h1>
-        <a href="/BorrowAndReturn/EquipmentStore">BACK</a>
+        <a href="EquipmentStore">BACK</a>
         <hr>${msg}<br>
             <table border="3">
                 <tr>
@@ -24,9 +24,9 @@
                 </tr>
                 <c:forEach items="${equipments}" var="e">
                 <tr> 
-                    <td>${e.getEquipmentId()}</td>
+                    <td>${e.getEquipmentId()}</td><%-- จะเรียกใช้แบบ medthod  ของ model ก็ได้ --%>
                     <td>${e.getEquipmentName()}</td>
-                    <td><a href="/BorrowAndReturn/Return?id=${e.equipmentId}">${(e.borrower == null)? "":"return"}</a></td>
+                    <td><a href="Return?id=${e.equipmentId}">${(e.borrower == null)? "":"return"}</a></td>
                 </tr>
                 </c:forEach>
             </table>

@@ -49,6 +49,7 @@ public class ReturnServlet extends HttpServlet {
         Equipment e = ec.findEquipmentByid(eid);
 
         if (e == null) {
+            this.setAllEquipment(request);
             msg = "Cannot Return";
             request.setAttribute("msg", msg);
             request.getRequestDispatcher("/WEB-INF/ReturnEquipment.jsp").forward(request, response);
@@ -62,6 +63,7 @@ public class ReturnServlet extends HttpServlet {
                     response.sendRedirect("Return");
                     return;
                 }
+                this.setAllEquipment(request);
                 msg = "Cannot Return";
                 request.setAttribute("msg", msg);
                 request.getRequestDispatcher("/WEB-INF/ReturnEquipment.jsp").forward(request, response);

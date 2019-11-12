@@ -15,7 +15,7 @@
     </head>
     <body>
         <h1>Borrower ${user.username}!</h1>
-        <a href="/BorrowAndReturn/EquipmentStore">BACK</a>
+        <a href="EquipmentStore">BACK</a>
         <hr>${msg}<br>
             <table border="3">
                 <tr>
@@ -27,7 +27,7 @@
                 <tr> 
                     <td>${e.equipmentId}</td>
                     <td>${e.equipmentName}</td>
-                    <td><a href="/BorrowAndReturn/Borrow?id=${e.equipmentId}">${(e.borrower == null)? "borrow":"borrowed"}</a></td>
+                    <td><a href="Borrow?id=${e.equipmentId}">${(e.borrower == null)? "borrow":"borrowed"}</a></td>
                 </tr>
                 </c:forEach>
             </table>

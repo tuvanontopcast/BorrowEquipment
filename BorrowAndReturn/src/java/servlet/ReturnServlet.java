@@ -48,12 +48,7 @@ public class ReturnServlet extends HttpServlet {
         EquipmentController ec = new EquipmentController();
         Equipment e = ec.findEquipmentByid(eid);
 
-        if (e == null) {
-            this.setAllEquipment(request);
-            msg = "Cannot Return";
-            request.setAttribute("msg", msg);
-            request.getRequestDispatcher("/WEB-INF/ReturnEquipment.jsp").forward(request, response);
-        } else {
+        if (e != null) {
             if (e.getBorrower() != null) {
                 Student s = (Student) request.getSession().getAttribute("user");
                 if (e.getBorrower().getUsername().equals(s.getUsername())) {
@@ -76,6 +71,12 @@ public class ReturnServlet extends HttpServlet {
                 request.getRequestDispatcher("/WEB-INF/ReturnEquipment.jsp").forward(request, response);
 
             }
+            
+        } else {
+            this.setAllEquipment(request);
+            msg = "Cannot Return";
+            request.setAttribute("msg", msg);
+            request.getRequestDispatcher("/WEB-INF/ReturnEquipment.jsp").forward(request, response);
         }
 
     }

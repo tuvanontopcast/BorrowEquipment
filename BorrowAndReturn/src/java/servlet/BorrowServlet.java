@@ -43,7 +43,7 @@ public class BorrowServlet extends HttpServlet {
             getServletContext().getRequestDispatcher("/WEB-INF/BorrowEquipment.jsp").forward(request, response);
         } else {
 
-            int idEquipment = Integer.valueOf(request.getParameter("id"));
+            int idEquipment = Integer.valueOf(id);
             EquipmentController ec = new EquipmentController();
             Equipment e = ec.findEquipmentByid(idEquipment);
 
